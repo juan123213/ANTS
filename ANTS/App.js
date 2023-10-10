@@ -6,11 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack=createNativeStackNavigator()
 
 import UsersList from './screens/UsersList';
+import CreateUserScreen from './screens/CreateUserScreen';
 
 function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="UsersList" component={UsersList} />
+      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} />
     </Stack.Navigator>
   )
 }
