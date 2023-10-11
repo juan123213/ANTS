@@ -1,51 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import MenuScreen from './menu/menu'; // Importa la pantalla del menú
-
-const Stack = createStackNavigator();
+import { StyleSheet, View, Text, TextInput, Button, Image } from 'react-native';
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ title: 'Iniciar Sesión' }}
-        />
-        <Stack.Screen
-          name="Menu"
-          component={MenuScreen}
-          options={{ title: 'Menú' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-function LoginScreen({ navigation }) {
   const handleLogin = () => {
     // Implementa la lógica de inicio de sesión aquí
-    console.log('Usuario:'); // Agrega la lógica que necesites
-
-    // Redirige a la pantalla del menú después del inicio de sesión
-    navigation.navigate('Menu');
+    console.log('Usuario:', username);
+    console.log('Contraseña:', password);
   };
 
   return (
     <View style={styles.container}>
+      <Image
+        source={require('./recursos/Logo.jpeg')} // Ruta de la imagen en tu proyecto
+        style={styles.logo} // Estilo para el tamaño de la imagen
+      />
       <Text style={styles.projectName}>ANTS</Text>
       <TextInput
         style={styles.input}
         placeholder="Usuario"
+        onChangeText={(text) => setUsername(text)}
+        value={username}
       />
       <TextInput
         style={styles.input}
         placeholder="Contraseña"
+        onChangeText={(text) => setPassword(text)}
         secureTextEntry={true}
+        value={password}
       />
       <Button title="Iniciar Sesión" onPress={handleLogin} style={styles.button} />
       <StatusBar style="auto" />
@@ -59,6 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFA500',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    width: 200, // Establece el ancho deseado
+    height: 200, // Establece la altura deseada
   },
   projectName: {
     fontSize: 32,
