@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 
-const UsersScreen = () => {
-  const [usersData, setUsersData] = useState([]);
+const UsuariosScreen = () => {
+  const [usuariosData, setUsuariosData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -10,13 +10,13 @@ const UsersScreen = () => {
         const response = await fetch('http://localhost:8000/usuarios');
         const jsonData = await response.json();
 
-        // Extrae los atributos 'name' y 'email' de cada usuario
-        const formattedData = Object.values(jsonData).map((user) => ({
-          name: user.name,
-          email: user.email,
+        // Extrae los atributos 'nombre' y 'correo' de cada usuario
+        const formattedData = Object.values(jsonData).map((usuario) => ({
+          nombre: usuario.nombre,
+          correo: usuario.correo,
         }));
 
-        setUsersData(formattedData);
+        setUsuariosData(formattedData);
       } catch (error) {
         console.error('Error al obtener la lista de usuarios:', error);
       }
@@ -29,13 +29,12 @@ const UsersScreen = () => {
     <View>
       <Text>Lista de Usuarios:</Text>
       <FlatList
-        data={usersData}
-        keyExtractor={(user) => user.email}
+        data={usuariosData}
+        keyExtractor={(usuario) => usuario.correo}
         renderItem={({ item }) => (
           <View>
-            <Text>Nombre: {item.name}</Text>
-            <Text>Email: {item.email}</Text>
-            {/* Puedes agregar más campos aquí si es necesario */}
+            <Text>Nombre: {item.nombre}</Text>
+            <Text>correo: {item.correo}</Text>
           </View>
         )}
       />
@@ -43,4 +42,4 @@ const UsersScreen = () => {
   );
 };
 
-export default UsersScreen;
+export default UsuariosScreen;

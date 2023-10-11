@@ -5,14 +5,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack=createNativeStackNavigator()
 
-import UsersList from './screens/UsersList';
-import CreateUserScreen from './screens/CreateUserScreen';
+import ListaUsuariosScreen from './screens/Usuario/ListaUsuariosScreen';
+import CrearUsuarioFormulario from './screens/Usuario/CrearUsuarioScreen';
+import RegistrarGastoFormulario from './screens/Gasto/RegistrarGastoScreen';
 
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} />
-      <Stack.Screen name="UsersList" component={UsersList} />
+      <Stack.Screen name="RegistrarGastoFormulario" component={RegistrarGastoFormulario} />
+      <Stack.Screen name="CrearUsuarioFormulario" component={CrearUsuarioFormulario} />
+      <Stack.Screen name="ListaUsuariosScreen" component={ListaUsuariosScreen} />
     </Stack.Navigator>
   )
 }
