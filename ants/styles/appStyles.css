@@ -1,0 +1,31 @@
+/* styles/appStyles.css */
+.container {
+    flex: 1;
+    background-color: #FFA500;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .projectName {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .input {
+    width: 80%;
+    height: 40px;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+  
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
