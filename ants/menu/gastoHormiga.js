@@ -16,23 +16,23 @@ function GastoHormigaScreen() {
             <TextInput
                 style={styles.input}
                 placeholder="Ingresa el monto en pesos colombianos"
-                onChangeText={(text) => setMonto(text)} // Para mostrar el teclado numérico
+                onChangeText={(text) => setMonto(text)}
             />
             <Text style={styles.text}>Descripción</Text>
-            <Picker // Menú desplegable para la descripción
+            <Picker
                 selectedValue={descripcion}
                 onValueChange={(itemValue) => setDescripcion(itemValue)}
-                style={styles.input} // Establece el mismo estilo que los campos de texto
+                style={styles.input}
             >
                 <Picker.Item label="Transporte" value="transporte" />
                 <Picker.Item label="Comida" value="comida" />
-                <Picker.Item label="Otro" value="otro" />
+                <Picker.Item label="Otros" value="otros" />
             </Picker>
-            {descripcion === 'otro' && ( // Mostrar el campo "otros" si la descripción es "otro"
-                <View>
+            {descripcion === 'otros' && (
+                <View style={styles.otrosContainer}>
                     <Text style={styles.text}>Otro</Text>
                     <TextInput
-                        style={styles.input} // Establece el mismo estilo que los campos de texto
+                        style={styles.input}
                         placeholder="Especifica otra descripción"
                         onChangeText={(text) => setOtros(text)}
                     />
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFA500',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     text: {
         fontSize: 24,
@@ -67,4 +67,9 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: '#fff',
     },
+    otrosContainer: { // Estilo para el View de "otros"
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        },
 });
