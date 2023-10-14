@@ -4,7 +4,6 @@ import { StyleSheet, View, Text, TextInput, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MenuScreen from './menu/menu'; // Importa la pantalla del menú
-import { Alert } from 'react-native';
 import GastoHormigaScreen from './menu/gastoHormiga'; // Importa la pantalla de "Ingresar Gasto Hormiga"
 
 
@@ -40,8 +39,8 @@ function LoginScreen({ navigation }) {
 
   const handleLogin = () => {
     // Implementa la lógica de inicio de sesión aquí
-    console.log('Usuario:', username);
-    console.log('Contraseña:'); // Agrega la lógica que necesites
+    //console.log('Usuario:', username);
+    //console.log('Contraseña:'); // Agrega la lógica que necesites
 
     // Redirige a la pantalla del menú después del inicio de sesión
     navigation.navigate('Menu');
@@ -49,9 +48,6 @@ function LoginScreen({ navigation }) {
 
   const handleCancel  = () => {
     console.log('Botón de cancelar presionado');
-    Alert.alert('Muchas gracias', '¡Gracias por visitar nuestra aplicación!', [
-    { text: 'OK', onPress: () => console.log('Mensaje de agradecimiento cerrado') },
-  ]);
   };
 
   return (
@@ -79,7 +75,6 @@ function LoginScreen({ navigation }) {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
