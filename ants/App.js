@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 export default function App() {
 
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Login"
@@ -25,10 +25,10 @@ export default function App() {
           options={{ title: 'Menú' }}
         />
         <Stack.Screen
-         name="GastoHormiga"
-         component={GastoHormigaScreen}
-         options={{ title: 'Ingresar Gasto Hormiga' }}
-  />
+          name="GastoHormiga"
+          component={GastoHormigaScreen}
+          options={{ title: 'Ingresar Gasto Hormiga' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -46,17 +46,17 @@ function LoginScreen({ navigation }) {
     navigation.navigate('Menu');
   };
 
-  const handleCancel  = () => {
+  const handleCancel = () => {
     console.log('Botón de cancelar presionado');
   };
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('./recursos/Logo.jpeg')}
-        style={styles.logo}
+        source={require('./recursos/Logo.png')}
+        style={styles.circularImage} // Agrega esta línea
       />
-      <Text style={styles.projectName}>ANTS</Text>
+      <Text style={styles.projectName}>Ingrese su cuenta para ANTS</Text>
       <TextInput
         style={styles.input}
         placeholder="Usuario"
@@ -68,9 +68,9 @@ function LoginScreen({ navigation }) {
         placeholder="Contraseña"
         secureTextEntry={true}
       />
-      <Button title="Iniciar Sesión" onPress={handleLogin} style={styles.button} />
+      <Button title="Iniciar Sesión" onPress={handleLogin} color="#0F0E0E" style={styles.button} />
       <View style={{ marginTop: 10 }} /> {/* Espacio entre los botones */}
-      <Button title="Cancelar" onPress={handleCancel} style={styles.button} />
+      <Button title="Cancelar" onPress={handleCancel} color="#0F0E0E" style={styles.button} />
       <StatusBar style="auto" />
     </View>
   );
@@ -79,9 +79,14 @@ function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFA500',
+    backgroundColor: '#0F0E0E',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  circularImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 100, // Esto hará que la imagen sea circular
   },
   logo: {
     width: 200, // Establece el ancho deseado
@@ -106,5 +111,6 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 10,
     marginBottom: 10,
+    borderRadius: 10,
   },
 });

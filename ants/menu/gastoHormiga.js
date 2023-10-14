@@ -48,7 +48,7 @@ export default GastoHormigaScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFA500',
+        backgroundColor: '#952323',
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
