@@ -38,7 +38,7 @@ function GastoHormigaScreen() {
                     />
                 </View>
             )}
-            <Button title="Aceptar Ingreso" onPress={handleAceptarIngreso} />
+            <Button title="Aceptar Ingreso" color="#0F0E0E" onPress={handleAceptarIngreso} />
         </View>
     );
 }
@@ -48,7 +48,7 @@ export default GastoHormigaScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#952323',
+        backgroundColor: '#0F0E0E',
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
